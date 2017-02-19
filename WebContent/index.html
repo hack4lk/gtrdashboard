@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>GTR Dashboard</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div>Message <input type="text" id="inputMessage" name="inputMessage" /></div>
+        <div>
+        	<!-- 
+            <button id="openSocket2" onclick="openSocket();">Open Socket</button>
+            <button id="sendMessage2" onclick="sendMessage();">Send Message</button>
+            <button id="closeSocket2" onclick="closeSocket();">Close Socket</button> 
+             -->
+            
+            <button id="openSocket">Open Socket</button>
+            <button id="sendMessage">Send Message</button>
+            <button id="closeSocket">Close Socket</button>
+        </div>
+        <div id="counter">count here....</div>
+        <div id="messages"></div>
+        
+        <div id="appError"></div>
+        <div id="appContent"></div>
+        
+        <script src="src/libraries/jquery.js"></script>
+        <script src="src/ts/app.js"></script>
+        <script src="src/ts/display.js"></script>
+        <script src="src/ts/events.js"></script>
+        <script src="src/ts/websocket.js"></script>
+        <script>
+        	var app = new App();
+        </script>
+    </body>
+</html>

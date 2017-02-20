@@ -9,22 +9,26 @@ and open the template in the editor.
         <title>GTR Dashboard</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="src/css/app.css?v=1.002">
     </head>
     <body>
-        <div>Message <input type="text" id="inputMessage" name="inputMessage" /></div>
-        <div>
-        	<!-- 
-            <button id="openSocket2" onclick="openSocket();">Open Socket</button>
-            <button id="sendMessage2" onclick="sendMessage();">Send Message</button>
-            <button id="closeSocket2" onclick="closeSocket();">Close Socket</button> 
-             -->
-            
-            <button id="openSocket">Open Socket</button>
-            <button id="sendMessage">Send Message</button>
-            <button id="closeSocket">Close Socket</button>
-        </div>
-        <div id="counter">count here....</div>
-        <div id="messages"></div>
+    	<div style="position:absolute; width;100%;height:auto;padding:5px;z-index:99; background-color:#000">
+    		<div>Message <input type="text" id="inputMessage" name="inputMessage" /></div>
+	        <div>
+	        	<!-- 
+	            <button id="openSocket2" onclick="openSocket();">Open Socket</button>
+	            <button id="sendMessage2" onclick="sendMessage();">Send Message</button>
+	            <button id="closeSocket2" onclick="closeSocket();">Close Socket</button> 
+	             -->
+	            
+	            <button id="openSocket">Open Socket</button>
+	            <button id="sendMessage">Send Message</button>
+	            <button id="closeSocket">Close Socket</button>
+	        </div>
+	        <div id="counter">count here....</div>
+	        <div id="messages"></div>
+    	</div>
+        
         
         <div id="appError"></div>
         <div id="appContent"></div>

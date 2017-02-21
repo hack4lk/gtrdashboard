@@ -28,6 +28,7 @@ class Display{
         this.getTemplate('loadError.html', (data) => {
             if(data != ''){
                 this.appContent.innerHTML = data;
+                Events.setLoadErrorPageHandlers();
             }else{
                 alert('application error!');   
             }

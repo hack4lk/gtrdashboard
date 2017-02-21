@@ -22,6 +22,7 @@ var Display = (function () {
         this.getTemplate('loadError.html', function (data) {
             if (data != '') {
                 _this.appContent.innerHTML = data;
+                Events.setLoadErrorPageHandlers();
             }
             else {
                 alert('application error!');

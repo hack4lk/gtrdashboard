@@ -24,6 +24,10 @@ class Events{
        }); 
     }
     
+    public static setLoadErrorPageHandlers(){
+           Display.toggleScreenLeftRight('viewLoadError', 'load-error');
+    }
+    
     public setGlobalEvents(){
         this.openSocketBtn = document.getElementById('openSocket'); 
         this.sendBessageBtn = document.getElementById('sendMessage'); 

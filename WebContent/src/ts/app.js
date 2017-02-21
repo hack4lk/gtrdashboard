@@ -10,6 +10,7 @@ var App = (function () {
         this.events.setGlobalEvents();
         document.addEventListener('startSuccess', function (e) {
             _this.display.renderSplashPage();
+            //this.display.renderErrorMessage();
         });
         document.addEventListener('startFail', function (e) {
             _this.display.renderErrorMessage();

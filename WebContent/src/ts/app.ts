@@ -16,6 +16,7 @@ class App{
         this.events.setGlobalEvents();
         document.addEventListener('startSuccess', (e) => {
             this.display.renderSplashPage();
+            //this.display.renderErrorMessage();
         });
         document.addEventListener('startFail', (e) => {
             this.display.renderErrorMessage();

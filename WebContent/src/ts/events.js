@@ -12,6 +12,9 @@ var Events = (function () {
             Display.toggleScreenLeftRight('viewSplash', 'splash');
         });
     };
+    Events.setLoadErrorPageHandlers = function () {
+        Display.toggleScreenLeftRight('viewLoadError', 'load-error');
+    };
     Events.prototype.setGlobalEvents = function () {
         this.openSocketBtn = document.getElementById('openSocket');
         this.sendBessageBtn = document.getElementById('sendMessage');

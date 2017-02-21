@@ -1,0 +1,20 @@
+@mixin animation($seconds){
+	transition:all $seconds;
+	-webkit-transition:all $seconds;
+}
+
+@mixin flyin-left(){
+	left:0;
+}
+
+@mixin flyout-left(){
+	left:-110%;
+}
+
+@mixin flyin-top(){
+	top:0;
+}
+
+@mixin flyout-top(){
+	top:-110%;
+}

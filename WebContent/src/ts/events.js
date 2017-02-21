@@ -1,8 +1,17 @@
+/// <reference path="display.ts" />
 var Events = (function () {
     function Events() {
         this.startSuccessEvt = new Event('startSuccess');
         this.startFailEvt = new Event('startFail');
     }
+    Events.setSplashPageHandlers = function () {
+        var toggleSplashBtn = document.getElementById('toggleSplash');
+        var splashPage = document.getElementById('viewSplash');
+        Display.toggleScreenLeftRight('viewSplash', 'splash');
+        toggleSplashBtn.addEventListener('click', function () {
+            Display.toggleScreenLeftRight('viewSplash', 'splash');
+        });
+    };
     Events.prototype.setGlobalEvents = function () {
         this.openSocketBtn = document.getElementById('openSocket');
         this.sendBessageBtn = document.getElementById('sendMessage');

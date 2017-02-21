@@ -1,13 +1,27 @@
+/// <reference path="display.ts" />
+
 class Events{
  
     openSocketBtn;
     sendBessageBtn;
+    splashPage;
     startSuccessEvt;
     startFailEvt;
     
     constructor(){
         this.startSuccessEvt = new Event('startSuccess'); 
         this.startFailEvt = new Event('startFail'); 
+    }
+    
+    public static setSplashPageHandlers(){
+       let toggleSplashBtn = document.getElementById('toggleSplash');
+       let splashPage = document.getElementById('viewSplash');
+       
+       Display.toggleScreenLeftRight('viewSplash', 'splash');
+        
+       toggleSplashBtn.addEventListener('click', function(){
+           Display.toggleScreenLeftRight('viewSplash', 'splash');
+       }); 
     }
     
     public setGlobalEvents(){

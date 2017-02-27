@@ -11,5 +11,6 @@
 	<classpathentry kind="lib" path="C:/wamp/www/java2usb/nrjavaserial-master/build/libs/nrjavaserial-3.12.0.jar"/>
 	<classpathentry kind="lib" path="C:/Program Files/Apache Software Foundation/Tomcat 8.5/lib/websocket-api.jar"/>
 	<classpathentry kind="lib" path="C:/jars/json-20160810.jar"/>
+	<classpathentry kind="lib" path="C:/jars/gson-2.8.0.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

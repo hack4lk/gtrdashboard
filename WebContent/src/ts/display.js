@@ -17,12 +17,30 @@ var Display = (function () {
             }
         });
     };
-    Display.prototype.renderErrorMessage = function () {
+    Display.prototype.renderErrorMessage = function (msg) {
         var _this = this;
         this.getTemplate('loadError.html', function (data) {
             if (data != '') {
                 _this.appContent.innerHTML = data;
                 Events.setLoadErrorPageHandlers();
+                document.getElementById('viewLoadError').className = "load-error show";
+                if (msg != "") {
+                    var errorMsg = document.getElementById('errorStatus');
+                    errorMsg.innerHTML = msg;
+                }
+            }
+            else {
+                alert('application error!');
+            }
+        });
+    };
+    Display.prototype.renderCommSelector = function (ports) {
+        var _this = this;
+        this.getTemplate('commSelect.html', function (data) {
+            if (data != '') {
+                _this.appContent.innerHTML = data;
+                document.getElementById('commSelect').className = "comm-select show";
+                Events.setCommSelectHandlers(ports);
             }
             else {
                 alert('application error!');

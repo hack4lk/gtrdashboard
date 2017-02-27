@@ -29,6 +29,7 @@ var Socket = (function () {
         this.wSocket.close();
     };
     Socket.prototype.assignwSocketHandlers = function () {
+        var _this = this;
         this.wSocket.onopen = function (e) {
             var events = new Events();
             if (e.returnValue === undefined) {
@@ -39,7 +40,33 @@ var Socket = (function () {
             }
         };
         this.wSocket.onmessage = function (event) {
-            this.socketData = event.data;
+            _this.socketData = event.data;
+            var response = { 'responseCode': '', 'data': '' };
+            try {
+                response = JSON.parse(_this.socketData);
+            }
+            catch (e) {
+                console.log(e);
+                Events.triggerPublicEvent('commError');
+                return;
+            }
+            if (typeof response.responseCode === 'undefined')
+                response.responseCode = null;
+            switch (response.responseCode) {
+                case 'commError':
+                    Events.triggerPublicEvent('commError');
+                    break;
+                case null:
+                    Events.triggerPublicEvent('commError');
+                    break;
+                case 'commsAvailable':
+                    _this.jsonData = response.data;
+                    Events.triggerPublicEvent('commsLoaded');
+                    break;
+                default:
+                    console.log(response);
+                    break; //do nothing for now...later we'll add method for update data...
+            }
         };
         this.wSocket.onclose = function (event) {
             console.log('connection closed');

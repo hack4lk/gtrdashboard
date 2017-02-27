@@ -4,7 +4,8 @@ class Socket {
   
     wSocket;
     socketURL: string;
-    socketData; //JSON
+    socketData; //string
+    jsonData; //json
     events;
     
     constructor(url: string){
@@ -51,8 +52,35 @@ class Socket {
           }
         }
       
-        this.wSocket.onmessage = function(event){
+        this.wSocket.onmessage = (event) =>{
             this.socketData =  event.data;
+            let response = {'responseCode':'', 'data': ''};
+            
+            try{
+                response = JSON.parse(this.socketData);
+            }catch(e){
+                console.log(e);
+                Events.triggerPublicEvent('commError');
+                return;
+            }
+            
+            if(typeof response.responseCode === 'undefined') response.responseCode = null;
+            
+            switch(response.responseCode){
+                case 'commError':
+                    Events.triggerPublicEvent('commError'); 
+                    break;
+                case null:
+                    Events.triggerPublicEvent('commError'); 
+                    break;
+                case 'commsAvailable':
+                    this.jsonData = response.data;
+                    Events.triggerPublicEvent('commsLoaded');
+                    break;
+                default:
+                    console.log(response);
+                    break; //do nothing for now...later we'll add method for update data...
+            }
         }
       
         this.wSocket.onclose = function(event){

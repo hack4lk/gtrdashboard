@@ -24,15 +24,33 @@ class Display{
         });
     }
     
-    public renderErrorMessage(){
+    public renderErrorMessage(msg:string){
         this.getTemplate('loadError.html', (data) => {
             if(data != ''){
                 this.appContent.innerHTML = data;
                 Events.setLoadErrorPageHandlers();
+                document.getElementById('viewLoadError').className = "load-error show";
+                if(msg != ""){
+                    let errorMsg = document.getElementById('errorStatus');
+                    errorMsg.innerHTML = msg;
+                }
+                
             }else{
                 alert('application error!');   
             }
         });
+    }
+    
+    public renderCommSelector(ports){
+        this.getTemplate('commSelect.html', (data) => {
+            if(data != ''){
+                this.appContent.innerHTML = data;
+                document.getElementById('commSelect').className = "comm-select show";
+                Events.setCommSelectHandlers(ports);
+            }else{
+                alert('application error!');   
+            }
+        });    
     }
     
     public static toggleScreenLeftRight(targetScreen:string, baseClass:string){

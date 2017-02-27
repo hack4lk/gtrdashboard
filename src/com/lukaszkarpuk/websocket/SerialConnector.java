@@ -47,11 +47,11 @@ public class SerialConnector implements SerialPortEventListener {
     String logText = "";
     
     public static void main(String[] args){
-    	SerialConnector talk = new SerialConnector();
+    	//SerialConnector talk = new SerialConnector();
 	}
     
 	public SerialConnector(){
-		System.out.print("hi! \n");
+		System.out.print("Serial Connection Created! \n");
 	}
 	
 	//search for all the serial ports
@@ -73,7 +73,6 @@ public class SerialConnector implements SerialPortEventListener {
             	System.out.print(curPort.toString());
             }
         }
-        System.out.print(portMap.toString());
         
         if(doReturn){
         	return portMap;

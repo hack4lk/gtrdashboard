@@ -21,14 +21,14 @@ import java.util.Set;
 
 import java.awt.Color;
 import java.io.IOException;
-import java.io.InputStream;
+import java.io.InputStream; 
 import java.io.OutputStream;
 import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.TooManyListenersException;
 
 import org.json.*;
-
+import com.google.gson.*; 
 
 /**
  *
@@ -39,6 +39,7 @@ public class WebSocket{
 	
 	static ScheduledExecutorService timer;
 	SerialConnector serialConn;
+	public GsonBuilder builder = new GsonBuilder();
 	
 	public static void main(String[] args){
 		
@@ -50,8 +51,7 @@ public class WebSocket{
         timer = Executors.newSingleThreadScheduledExecutor();
         
         try{
-        	session.getBasicRemote().sendText("Connection Established!");
-        	serialConn = new SerialConnector();
+        	session.getBasicRemote().sendText("{\"responseCode\":\"OK\"}");
         }catch(IOException e){
         	System.out.print("error opening session!");
         }
@@ -61,8 +61,8 @@ public class WebSocket{
     @OnMessage
     public void onMessage(String message, Session session){
         try{
-        	String test = performTask(message);
-        	session.getBasicRemote().sendText(test);
+        	String text = performTask(message);
+        	session.getBasicRemote().sendText(text);
         }catch(IOException e){
         	System.out.print("error sending message!");
         }
@@ -82,18 +82,33 @@ public class WebSocket{
     
     public String performTask(String task){
     	if(task.equalsIgnoreCase("getPorts")){
-    		HashMap<String, CommPortIdentifier> portMap = serialConn.searchForPorts(true);
-    		
-    		if(portMap.size() > 0){
-    			JSONArray portArray = new JSONArray(portMap);
-    			return portArray.toString();
-    		}else{
-    			return "{}";
-    		}
-    		
-    		
+    		return this.getCommPorts();
     	}else{
-    		return "null";
+    		return "{\"responseCode\":\"commError\"}";
     	}
+    }
+    
+    private String getCommPorts(){
+    	String result = "";
+    	
+    	serialConn = new SerialConnector();
+    	HashMap<String, CommPortIdentifier> portMap = serialConn.searchForPorts(true);
+    	
+    	if(portMap.size() > 0){
+			String response = "{\"responseCode\":\"commsAvailable\", \"data\": [";
+			String data = "";
+			
+			for(HashMap.Entry<String, CommPortIdentifier> entry : portMap.entrySet()){
+				String key = entry.getKey();
+				data += "{\"key\":\"" + key + "\"},";
+			}
+			data = data.substring(0, data.length() - 1);
+			response = response + data + "]}";
+			System.out.println(response);
+    		return response;
+		}else{
+			//return "{\"responseCode\":\"commError\"}";
+			return "{\"responseCode\":\"commsAvailable\", \"data\": [{\"key\":\"COM4\"}]}";
+		}
     }
 }

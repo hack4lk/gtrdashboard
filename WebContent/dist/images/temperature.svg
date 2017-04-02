@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="53"
+   height="72"
+   viewBox="0 0 14.022916 19.05"
+   version="1.1"
+   id="svg9702"
+   inkscape:version="0.92.1 r15371"
+   sodipodi:docname="temperature.svg">
+  <defs
+     id="defs9696" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="3.959798"
+     inkscape:cx="100.9101"
+     inkscape:cy="7.7479645"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1366"
+     inkscape:window-height="705"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     units="px" />
+  <metadata
+     id="metadata9699">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-277.94996)">
+    <path
+       inkscape:connector-curvature="0"
+       style="opacity:1;fill:#000000;fill-opacity:0;stroke:#000000;stroke-width:0.80088538;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 4.0763166,278.57704 c -0.36669,0 -0.66198,0.40207 -0.66198,0.90183 v 9.95053 a 5.2994872,3.8876544 0 0 0 -2.73471002,3.39694 5.2994872,3.8876544 0 0 0 5.29993002,3.88769 5.2994872,3.8876544 0 0 0 5.2994204,-3.88769 5.2994872,3.8876544 0 0 0 -2.7347204,-3.40062 v -9.94685 c 0,-0.49976 -0.29529,-0.90183 -0.66197,-0.90183 z"
+       id="path5809" />
+    <ellipse
+       style="opacity:1;fill:#0d0000;fill-opacity:1;stroke:#000000;stroke-width:1.09730351;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="path5817"
+       cx="6.0331812"
+       cy="292.84329"
+       rx="3.5176218"
+       ry="2.5380764" />
+    <rect
+       style="opacity:1;fill:#0d0000;fill-opacity:1;stroke:#000000;stroke-width:0.72433096;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect5827"
+       width="4.120419"
+       height="0.91079587"
+       x="9.6707878"
+       y="281.71005"
+       rx="0.48591074"
+       ry="0.69016546" />
+    <rect
+       style="opacity:1;fill:#0d0000;fill-opacity:1;stroke:#000000;stroke-width:0.72433096;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect5827-5"
+       width="4.120419"
+       height="0.91079587"
+       x="9.6707878"
+       y="283.70282"
+       rx="0.48591074"
+       ry="0.69016546" />
+    <rect
+       style="opacity:1;fill:#0d0000;fill-opacity:1;stroke:#000000;stroke-width:0.72433096;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect5827-50"
+       width="4.120419"
+       height="0.91079587"
+       x="9.6707878"
+       y="285.69559"
+       rx="0.48591074"
+       ry="0.69016546" />
+  </g>
+</svg>

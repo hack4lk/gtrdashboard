@@ -145,7 +145,7 @@ body {
     text-transform: uppercase;
     background: rgba(0, 0, 0, 0.75);
     padding: 10px;
-    box-shadow: 0 0 4px #333;
+    box-shadow: 0 0 14px #aaa;
     font-size: 22px; }
   .load-error.show {
     opacity: 1;
@@ -189,5 +189,159 @@ body {
   .comm-select.show {
     opacity: 1;
     left: 0; }
+
+.dashboard {
+  background-color: #fff;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  position: absolute;
+  width: 800px;
+  height: 450px; }
+  .dashboard .center-content {
+    top: 110px;
+    left: 270px;
+    position: absolute;
+    font-size: 26px; }
+    .dashboard .center-content .max-content {
+      width: 100%; }
+      .dashboard .center-content .max-content strong {
+        font-weight: 700; }
+    .dashboard .center-content .miles-per-hour {
+      font-size: 45px;
+      width: 100%; }
+      .dashboard .center-content .miles-per-hour span {
+        font-size: 100px;
+        color: #0044aa;
+        font-weight: bold;
+        line-height: 82px;
+        margin-left: -5px;
+        color: #2d549a; }
+    .dashboard .center-content .rpm {
+      width: 100%;
+      font-size: 28px;
+      margin-top: 15px; }
+      .dashboard .center-content .rpm span {
+        font-size: 40px;
+        font-weight: 700;
+        color: #2d549a;
+        line-height: 32px; }
+  .dashboard .box-amount {
+    width: 100%;
+    height: 0%;
+    background: #5d5d5d; }
+  .dashboard .right-content {
+    width: 85px;
+    right: 50px;
+    top: 140px;
+    position: absolute; }
+    .dashboard .right-content .box-content {
+      width: 115px;
+      height: 95px;
+      text-align: center;
+      font-size: 28px;
+      font-weight: 700; }
+      .dashboard .right-content .box-content .box-icon {
+        width: 45px;
+        height: 30px;
+        margin-left: 26px; }
+        .dashboard .right-content .box-content .box-icon.temp {
+          width: 30px;
+          margin-bottom: 8px; }
+        .dashboard .right-content .box-content .box-icon img {
+          width: 100%;
+          height: auto; }
+      .dashboard .right-content .box-content .box-holder {
+        width: 20px;
+        height: 30px;
+        border: 1px solid #aaa;
+        position: absolute;
+        display: flex;
+        align-items: flex-end; }
+      .dashboard .right-content .box-content .box-value {
+        width: 70px;
+        position: absolute;
+        font-size: 30px;
+        font-weight: 700;
+        margin-top: 0px;
+        color: #2d549a; }
+  .dashboard .bottom-content {
+    top: 365px;
+    left: 200px;
+    position: absolute;
+    font-size: 18px; }
+    .dashboard .bottom-content .content-box {
+      width: 135px;
+      height: 55px;
+      float: left;
+      margin-right: 15px; }
+      .dashboard .bottom-content .content-box .box-holder {
+        width: 30px;
+        height: 50px;
+        border: 1px solid #aaa;
+        position: absolute;
+        display: flex;
+        align-items: flex-end; }
+      .dashboard .bottom-content .content-box .box-value {
+        width: 90px;
+        position: absolute;
+        margin-left: 38px;
+        font-size: 30px;
+        font-weight: 700;
+        margin-top: -10px;
+        color: #2d549a; }
+      .dashboard .bottom-content .content-box .box-title {
+        width: 90px;
+        position: absolute;
+        margin-left: 38px;
+        font-size: 18px;
+        font-weight: 500;
+        bottom: 0; }
+  .dashboard .rpm-ticks {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0; }
+    .dashboard .rpm-ticks .red-line-indivator {
+      position: absolute;
+      top: -2px;
+      left: -14px;
+      opacity: 0.15; }
+    .dashboard .rpm-ticks .rpm-tick {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      opacity: 0.10; }
+      .dashboard .rpm-ticks .rpm-tick.tick-1 {
+        top: 340px;
+        left: -4px; }
+      .dashboard .rpm-ticks .rpm-tick.tick-2 {
+        top: 223px;
+        left: -4px; }
+      .dashboard .rpm-ticks .rpm-tick.tick-3 {
+        top: 70px;
+        left: -5px; }
+      .dashboard .rpm-ticks .rpm-tick.tick-4 {
+        top: -5px;
+        left: 56px; }
+      .dashboard .rpm-ticks .rpm-tick.tick-5 {
+        top: -9px;
+        left: 205px; }
+      .dashboard .rpm-ticks .rpm-tick.tick-6 {
+        top: -8px;
+        left: 342px; }
+      .dashboard .rpm-ticks .rpm-tick.tick-7 {
+        top: -7px;
+        left: 465px; }
+      .dashboard .rpm-ticks .rpm-tick.tick-8 {
+        top: -6px;
+        left: 576px; }
+      .dashboard .rpm-ticks .rpm-tick.tick-9 {
+        top: -6px;
+        left: 691px; }
 
 /*# sourceMappingURL=app.css.map */

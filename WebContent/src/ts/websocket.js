@@ -1,4 +1,5 @@
 /// <reference path='events.ts' />
+/// <reference path="display.ts" />
 var Socket = (function () {
     function Socket(url) {
         //do nothing for now...
@@ -26,6 +27,7 @@ var Socket = (function () {
     };
     Socket.prototype.closeSocket = function () {
         console.log('socket closed');
+        this.wSocket.send("closeConn");
         this.wSocket.close();
     };
     Socket.prototype.assignwSocketHandlers = function () {
@@ -46,6 +48,7 @@ var Socket = (function () {
                 response = JSON.parse(_this.socketData);
             }
             catch (e) {
+                console.log(event.data);
                 console.log(e);
                 Events.triggerPublicEvent('commError');
                 return;
@@ -53,6 +56,10 @@ var Socket = (function () {
             if (typeof response.responseCode === 'undefined')
                 response.responseCode = null;
             switch (response.responseCode) {
+                case 'ecuData':
+                    _this.jsonData = response.data;
+                    Events.triggerPublicEvent('updateDashboard');
+                    break;
                 case 'commError':
                     Events.triggerPublicEvent('commError');
                     break;
@@ -63,13 +70,23 @@ var Socket = (function () {
                     _this.jsonData = response.data;
                     Events.triggerPublicEvent('commsLoaded');
                     break;
+                case 'commConnStatus':
+                    _this.jsonData = response.data;
+                    console.log(response.data);
+                    Events.triggerPublicEvent('commConnected');
+                    break;
+                case 'ecuStatus':
+                    _this.jsonData = response.data;
+                    console.log(response.data);
+                    Events.triggerPublicEvent('ecuStatus');
                 default:
                     console.log(response);
                     break; //do nothing for now...later we'll add method for update data...
             }
         };
         this.wSocket.onclose = function (event) {
-            console.log('connection closed');
+            var display = new Display();
+            display.renderErrorMessage("Lost Connection to Car");
         };
     };
     return Socket;

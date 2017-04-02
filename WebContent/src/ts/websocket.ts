@@ -1,4 +1,5 @@
 /// <reference path='events.ts' />
+/// <reference path="display.ts" />
 
 class Socket {
   
@@ -37,7 +38,8 @@ class Socket {
   
     public closeSocket(){
         console.log('socket closed');
-        this.wSocket.close();
+         this.wSocket.send("closeConn");
+         this.wSocket.close();
     }
   
     public assignwSocketHandlers(){
@@ -59,6 +61,7 @@ class Socket {
             try{
                 response = JSON.parse(this.socketData);
             }catch(e){
+                console.log(event.data);
                 console.log(e);
                 Events.triggerPublicEvent('commError');
                 return;
@@ -67,6 +70,10 @@ class Socket {
             if(typeof response.responseCode === 'undefined') response.responseCode = null;
             
             switch(response.responseCode){
+                case 'ecuData':
+                    this.jsonData = response.data;
+                    Events.triggerPublicEvent('updateDashboard');
+                    break;
                 case 'commError':
                     Events.triggerPublicEvent('commError'); 
                     break;
@@ -77,6 +84,15 @@ class Socket {
                     this.jsonData = response.data;
                     Events.triggerPublicEvent('commsLoaded');
                     break;
+                case 'commConnStatus':
+                    this.jsonData = response.data;
+                    console.log(response.data);
+                    Events.triggerPublicEvent('commConnected');
+                    break;
+                case 'ecuStatus':
+                     this.jsonData = response.data;
+                     console.log(response.data);
+                    Events.triggerPublicEvent('ecuStatus');
                 default:
                     console.log(response);
                     break; //do nothing for now...later we'll add method for update data...
@@ -84,7 +100,8 @@ class Socket {
         }
       
         this.wSocket.onclose = function(event){
-            console.log('connection closed');
+            var display = new Display();
+            display.renderErrorMessage("Lost Connection to Car");
         }
     }
 }

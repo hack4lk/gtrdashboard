@@ -2,6 +2,7 @@
 var Events = (function () {
     function Events() {
         var _this = this;
+        this.display = new Display();
         this.trigger = function (eventType) {
             if (eventType === 'startSuccess') {
                 document.dispatchEvent(_this.startSuccessEvt);
@@ -15,6 +16,9 @@ var Events = (function () {
         Events.commErrorEvt = new Event('commError');
         Events.commsLoadedEvt = new Event('commsLoaded');
         Events.commSelectedEvt = new Event('commSelected');
+        Events.commAbleToConnectEvt = new Event('commConnected'); //event when we're able to connect to car!
+        Events.ecuStatusEvt = new Event('ecuStatus');
+        Events.updateDashboardEvt = new Event('updateDashboard');
     }
     Events.triggerPublicEvent = function (eventType) {
         if (eventType === 'commError') {
@@ -22,6 +26,15 @@ var Events = (function () {
         }
         if (eventType === 'commsLoaded') {
             document.dispatchEvent(Events.commsLoadedEvt);
+        }
+        if (eventType === 'commConnected') {
+            document.dispatchEvent(Events.commAbleToConnectEvt);
+        }
+        if (eventType === 'ecuStatus') {
+            document.dispatchEvent(Events.ecuStatusEvt);
+        }
+        if (eventType === 'updateDashboard') {
+            document.dispatchEvent(Events.updateDashboardEvt);
         }
     };
     Events.setSplashPageHandlers = function () {
@@ -60,14 +73,23 @@ var Events = (function () {
     Events.prototype.setGlobalEvents = function () {
         this.openSocketBtn = document.getElementById('openSocket');
         this.sendBessageBtn = document.getElementById('sendMessage');
+        this.closeConn = document.getElementById('closeSocket');
+        this.dashboardBtn = document.getElementById('loadDashboard');
     };
     Events.prototype.addTestButtonEvents = function (sock) {
-        this.openSocketBtn.addEventListener('click', function () {
+        var _this = this;
+        this.openSocketBtn.addEventListener('click', function (e) {
             sock.createConn();
+        });
+        this.closeConn.addEventListener('click', function (e) {
+            sock.closeSocket();
         });
         this.sendBessageBtn.addEventListener('click', function () {
             console.log("send message pressed....");
             sock.sendMessage('this works!');
+        });
+        this.dashboardBtn.addEventListener('click', function () {
+            _this.display.renderdDashboardPage();
         });
     };
     return Events;

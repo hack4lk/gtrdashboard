@@ -8,10 +8,16 @@ class Events{
     startSuccessEvt;
     startFailEvt;
     splashPageLoadedEvt;
+    closeConn;
+    dashboardBtn;
     public static selectedComm;
     public static commErrorEvt;
     public static commsLoadedEvt;
     public static commSelectedEvt;
+    public static commAbleToConnectEvt;
+    public static ecuStatusEvt;
+    public static updateDashboardEvt;
+    public display = new Display();
     
     constructor(){
         this.startSuccessEvt = new Event('startSuccess'); 
@@ -19,6 +25,9 @@ class Events{
         Events.commErrorEvt = new Event('commError');
         Events.commsLoadedEvt = new Event('commsLoaded');
         Events.commSelectedEvt = new Event('commSelected');
+        Events.commAbleToConnectEvt = new Event('commConnected'); //event when we're able to connect to car!
+        Events.ecuStatusEvt = new Event('ecuStatus');
+        Events.updateDashboardEvt = new Event('updateDashboard');
     }
     
     public trigger = (eventType:string) => {
@@ -36,6 +45,15 @@ class Events{
         }
         if(eventType === 'commsLoaded'){
             document.dispatchEvent(Events.commsLoadedEvt);   
+        }
+        if(eventType === 'commConnected'){
+            document.dispatchEvent(Events.commAbleToConnectEvt);   
+        }
+        if(eventType === 'ecuStatus'){
+            document.dispatchEvent(Events.ecuStatusEvt);
+        }
+        if(eventType === 'updateDashboard'){
+            document.dispatchEvent(Events.updateDashboardEvt);   
         }
     }
     
@@ -57,7 +75,7 @@ class Events{
     }
     
     public static setCommSelectHandlers(ports){
-        let commSelect = document.getElementById('comms');
+        let commSelect = <HTMLSelectElement>document.getElementById('comms');
         let initOption = document.createElement('option');
         
         initOption.text = "Select";
@@ -84,16 +102,26 @@ class Events{
     public setGlobalEvents(){
         this.openSocketBtn = document.getElementById('openSocket'); 
         this.sendBessageBtn = document.getElementById('sendMessage'); 
+        this.closeConn = document.getElementById('closeSocket');
+        this.dashboardBtn = document.getElementById('loadDashboard');
     }
     
     public addTestButtonEvents(sock: Socket){
-        this.openSocketBtn.addEventListener('click', () => {
+        this.openSocketBtn.addEventListener('click', (e) => {
             sock.createConn();
+        });
+        
+        this.closeConn.addEventListener('click', (e) => {
+            sock.closeSocket();
         });
         
         this.sendBessageBtn.addEventListener('click', () =>{
             console.log("send message pressed....");
             sock.sendMessage('this works!');
+        });
+        
+        this.dashboardBtn.addEventListener('click', () =>{
+            this.display.renderdDashboardPage();
         });
     }
 }

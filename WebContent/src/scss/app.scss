@@ -106,7 +106,7 @@ body{
 		text-transform: uppercase;
 		background: rgba(0,0,0,0.75);
 		padding: 10px;
-		box-shadow: 0 0 4px #333;
+		box-shadow: 0 0 14px #aaa;
 		font-size: 22px;
 	}
 	
@@ -156,3 +156,223 @@ body{
 		@include flyin-left();
 	} 	
 }
+
+.dashboard{
+	background-color:#fff;	
+	left:0;
+	right:0;
+	top:0; 
+	bottom:0;
+	position:absolute;
+	width:800px;
+	height:450px;
+	
+	.center-content{
+		top:110px;
+		left:270px;
+		position:absolute;
+		font-size:26px;	
+		
+		.max-content{
+			width:100%;
+			
+			strong{
+				font-weight:700;	
+			}
+		}
+	
+		.miles-per-hour{
+			font-size:45px;
+			width:100%;
+			
+			span{
+				font-size:100px;
+				color:#0044aa;
+				font-weight:bold;
+				line-height:82px;
+				margin-left:-5px;
+				color:#2d549a;
+			}	
+		}
+	
+		.rpm{
+			width:100%;
+			font-size:28px;
+			margin-top:15px;
+			
+			span{
+				font-size:40px;
+				font-weight:700;
+				color:#2d549a;
+				line-height:32px;
+			}	
+		}
+	}
+
+	.box-amount{
+		width:100%;
+		height:0%;
+		background:#5d5d5d;
+	}
+
+	.right-content{
+		width:85px;
+		right:50px;
+		top:140px;
+		position:absolute;
+		
+		.box-content{
+			width:115px;
+			height:95px;
+			text-align:center;
+			font-size:28px;
+			font-weight:700;
+			
+			.box-icon{
+				width:45px;
+				height:30px;
+				margin-left:26px;
+				
+				&.temp{
+					width:30px;
+					margin-bottom:8px;	
+				}
+				
+				img{
+					width:100%;
+					height:auto;	
+				}
+			}
+		
+			.box-holder{
+				width:20px;
+				height:30px;
+				border:1px solid #aaa;
+				position:absolute;	
+				display: flex;
+    			align-items: flex-end;
+			}
+		
+			.box-value{
+				width:70px;
+				position:absolute;
+				font-size:30px;
+				font-weight:700;
+				margin-top:0px;
+				color:#2d549a; 
+			}	
+		}	
+	}
+
+	.bottom-content{
+		top:365px;
+		left:200px;
+		position:absolute;
+		font-size:18px;
+		
+		.content-box{
+			width:135px;
+			height:55px;
+			float:left;
+			margin-right:15px;
+			
+			.box-holder{
+				width:30px;
+				height:50px;
+				border:1px solid #aaa;
+				position:absolute;
+			    display: flex;
+    			align-items: flex-end;
+			}
+		
+			.box-value{
+				width:90px;
+				position:absolute;
+				margin-left:38px;
+				font-size:30px;
+				font-weight:700;
+				margin-top:-10px;
+				color:#2d549a;
+			}
+		
+			.box-title{
+				width:90px;
+				position:absolute;
+				margin-left:38px;
+				font-size:18px;
+				font-weight:500;
+				bottom:0;
+			}
+		}
+	}
+
+	.rpm-ticks{
+		width:100%;
+		height:100%;
+		position:absolute;
+		top:0;
+		right:0;
+		bottom:0;
+		left:0;
+		
+		.red-line-indivator{
+			position:absolute;
+			top:-2px;
+			left:-14px;
+			opacity:0.15;
+		}
+		
+		.rpm-tick{
+			position:absolute;
+			top:0;
+			bottom:0;
+			opacity:0.10;
+			
+			&.tick-1{
+				top:340px;
+				left:-4px;
+			}
+		
+			&.tick-2{
+				top:223px;
+				left:-4px;
+			}
+		
+			&.tick-3{
+				top:70px;
+				left:-5px;
+			}
+		
+			&.tick-4{
+				top:-5px;
+				left:56px;
+			}
+		
+			&.tick-5{
+				top:-9px;
+				left:205px;
+			}
+		
+			&.tick-6{
+				top:-8px;
+				left:342px;
+			}
+		
+			&.tick-7{
+				top:-7px;
+				left:465px;
+			}
+		
+			&.tick-8{
+				top:-6px;
+				left:576px;
+			}
+		
+			&.tick-9{
+				top:-6px;
+				left:691px;
+			}
+		}	
+	}
+}
+
